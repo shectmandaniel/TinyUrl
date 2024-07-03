@@ -7,7 +7,6 @@ import com.handson.tinyurl.util.Dates;
 import org.joda.time.LocalDateTime;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class UserClickOut {
 
