@@ -16,6 +16,15 @@ This is the main controller of the application, handling various endpoints relat
 - **TinyURL Endpoints**
   - `POST /tiny`: Generate a new shortened URL.
   - `GET /{tiny}/`: Redirect to the original URL based on the shortened code.
+ 
+### SwaggerConfig.java
+
+The `SwaggerConfig` class sets up Swagger for API documentation and testing.
+
+- **Swagger Configuration**
+  - The Swagger configuration is set up in `SwaggerConfig.java` using the `Docket` bean.
+  - The API documentation is accessible at `/swagger-ui.html` once the application is running.
+
 
 ### Docker-Compose
 
@@ -96,6 +105,15 @@ The `docker-compose.yml` file sets up the necessary services for the application
       }
     ]
     ```
+
+### Swagger API Documentation
+
+Swagger is used for API documentation and testing. To access the Swagger UI:
+
+1. Run the application.
+2. Navigate to [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your web browser.
+
+The Swagger UI provides a user-friendly interface to explore and test the API endpoints.
 
 ## Configuration
 
