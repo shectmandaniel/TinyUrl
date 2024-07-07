@@ -1,0 +1,15 @@
+spring.redis.host=your_redis_host
+spring.redis.port=6000
+spring.redis.pool.max-active=8
+spring.redis.pool.max-wait=-1
+spring.redis.pool.max-idle=8
+spring.redis.pool.min-idle=0
+
+base.url = http://localhost:8080/
+
+spring.data.mongodb.uri=your_mongodb_connection_uri
+
+spring.data.cassandra.keyspace-name=tiny_keyspace
+spring.data.cassandra.contact-points=your_cassandra_server
+spring.data.cassandra.port=9042
+spring.data.cassandra.schema-action=CREATE_IF_NOT_EXISTS
