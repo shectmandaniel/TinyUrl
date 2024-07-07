@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -10,8 +10,19 @@ body {
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 1em 0;
+    padding: 2em 0;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p a {
+    color: white;
+    text-decoration: underline;
+    font-size: 1.2em;
 }
 
 main {
@@ -19,8 +30,14 @@ main {
     max-width: 800px;
     margin: auto;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
+
+.intro img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1em;
 }
 
 section {
@@ -31,17 +48,13 @@ h1, h2, h3 {
     color: #333;
 }
 
-h1 {
-    font-size: 2em;
-}
-
 h2 {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-top: 1em;
 }
 
 h3 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-top: 0.5em;
 }
 
@@ -59,6 +72,9 @@ code, pre {
 pre {
     overflow-x: auto;
     padding: 1em;
+    background: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -66,5 +82,12 @@ footer {
     color: white;
     text-align: center;
     padding: 1em 0;
-    margin-top: 2em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p a {
+    color: white;
+    text-decoration: underline;
 }
