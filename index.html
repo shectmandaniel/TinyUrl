@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyURL Java Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TinyURL Java Project</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>This project is a URL shortening service built with Java and Spring Boot. It utilizes Redis for temporary storage, MongoDB for user data management, and Cassandra for scalable data storage.</p>
+        </section>
+        <section>
+            <h2>Project Structure</h2>
+            <h3>AppController.java</h3>
+            <p>This is the main controller of the application, handling various endpoints related to user creation, URL shortening, and URL redirection.</p>
+            <ul>
+                <li><strong>User Endpoints</strong>
+                    <ul>
+                        <li><code>POST /user</code>: Create a new user.</li>
+                        <li><code>GET /user/{name}</code>: Retrieve user information by name.</li>
+                        <li><code>GET /user/{name}/clicks</code>: Retrieve click data for a specific user.</li>
+                    </ul>
+                </li>
+                <li><strong>TinyURL Endpoints</strong>
+                    <ul>
+                        <li><code>POST /tiny</code>: Generate a new shortened URL.</li>
+                        <li><code>GET /{tiny}/</code>: Redirect to the original URL based on the shortened code.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>SwaggerConfig.java</h3>
+            <p>The <code>SwaggerConfig</code> class sets up Swagger for API documentation and testing.</p>
+            <ul>
+                <li><strong>Swagger Configuration</strong>
+                    <ul>
+                        <li>The Swagger configuration is set up in <code>SwaggerConfig.java</code> using the <code>Docket</code> bean.</li>
+                        <li>The API documentation is accessible at <code>/swagger-ui.html</code> once the application is running.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Docker-Compose</h3>
+            <p>The <code>docker-compose.yml</code> file sets up the necessary services for the application:</p>
+            <ul>
+                <li><strong>Redis</strong>: In-memory data store for quick lookups of shortened URLs.</li>
+                <li><strong>MongoDB</strong>: NoSQL database for storing user data and URL click counts.</li>
+                <li><strong>Cassandra</strong>: NoSQL database for scalable data storage.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Getting Started</h2>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>Java 11 or higher</li>
+                <li>Docker and Docker Compose</li>
+            </ul>
+            <h3>Running the Application</h3>
+            <ol>
+                <li><strong>Clone the repository:</strong>
+                    <pre><code>git clone &lt;repository-url&gt;
+cd &lt;repository-directory&gt;</code></pre>
+                </li>
+                <li><strong>Build the project:</strong>
+                    <pre><code>./mvnw clean install</code></pre>
+                </li>
+                <li><strong>Start the services using Docker Compose:</strong>
+                    <pre><code>docker-compose up -d</code></pre>
+                </li>
+                <li><strong>Run the application:</strong>
+                    <pre><code>java -jar target/&lt;your-jar-file&gt;.jar</code></pre>
+                </li>
+            </ol>
+            <h3>Endpoints</h3>
+            <ul>
+                <li><strong>Create User</strong>
+                    <pre><code>POST /user
+{
+  "name": "exampleName"
+}</code></pre>
+                </li>
+                <li><strong>Get User</strong>
+                    <pre><code>GET /user/{name}
+{
+  "name": "exampleName"
+}</code></pre>
+                </li>
+                <li><strong>Generate Tiny URL</strong>
+                    <pre><code>POST /tiny
+{
+  "longUrl": "http://example.com",
+  "userName": "exampleName"
+}</code></pre>
+                </li>
+                <li><strong>Redirect Tiny URL</strong>
+                    <pre><code>GET /{tiny}/</code></pre>
+                </li>
+                <li><strong>Get User Clicks</strong>
+                    <pre><code>GET /user/{name}/clicks
+[
+  {
+    "tiny": "abc123",
+    "longUrl": "http://example.com",
+    "clickTime": "2024-07-07T12:00:00Z"
+  }
+]</code></pre>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Swagger API Documentation</h2>
+            <p>Swagger is used for API documentation and testing. To access the Swagger UI:</p>
+            <ol>
+                <li>Run the application.</li>
+                <li>Navigate to <a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a> in your web browser.</li>
+            </ol>
+            <p>The Swagger UI provides a user-friendly interface to explore and test the API endpoints.</p>
+        </section>
+        <section>
+            <h2>Configuration</h2>
+            <p>The application properties can be configured in <code>application.properties</code> or through environment variables:</p>
+            <ul>
+                <li><code>base.url</code>: The base URL for the shortened links.</li>
+                <li><code>spring.redis.host</code>: The host you want to connect to Redis.</li>
+                <li><code>spring.data.mongodb.uri</code>: The MongoDB cluster you want to connect.</li>
+                <li><code>spring.data.cassandra.contact-points</code>: The Cassandra connection node.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contributing</h2>
+            <p>Contributions are welcome! Please submit a pull request or open an issue to discuss your changes.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Created by Daniel Shechtman</p>
+    </footer>
+</body>
+</html>
